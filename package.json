@@ -19,6 +19,7 @@
     "react-portable-text": "^0.4.3",
     "react-responsive-carousel": "^3.2.23",
     "react-slick": "^0.29.0",
+    "react-typed": "^1.0.9",
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {

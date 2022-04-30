@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link';
 import Carousel from '../Components/Carousel';
 import Header from '../Components/Header'
+import Typed from "react-typed";
 import { sanityClient, urlFor } from "../sanity";
 import { Post } from "../typings";
 import styles from "./style.module.css"
@@ -39,12 +40,20 @@ export default function Home({ posts }: Props) {
       <img className="contrast-200 blur-lg h-screen object-cover w-screen" src="https://images.shiksha.com/mediadata/images/articles/1635919891phpErjqCl.jpeg" />
    
    <header style={divStyle} className="mb-16 group z-5 w-full md:w-3/4 lg:w-1/2">
-     <h1 className="max-w-xl font-serif text-4xl md:text-6xl">
-       <span className="inline-flex h-20 pt-0 pl-2 p-5 overflow-x-hidden animate-type group-hover:animate-type-reverse whitespace-nowrap text-brand-accent will-change font-extrabold text-white">
+     <h1 className="max-w-xl font-serif text-4xl md:text-6xl ml-[10%] text-center">
+       {/* <span className="inline-flex h-20 pt-0 pl-2 p-5 overflow-x-hidden animate-type group-hover:animate-type-reverse whitespace-nowrap text-brand-accent will-change font-extrabold text-white">
          Mailer Daemon
-       </span>
-       <span className={`${styles.cursor} box-border inline-block w-1 h-10  -mb-2 bg-white md:-mb-4 md:h-16 animate-cursor will-change`}></span>
-     </h1>
+       </span> */}
+       {/* <span className={`${styles.cursor} box-border inline-block w-1 h-10  -mb-2 bg-white md:-mb-4 md:h-16 animate-cursor will-change`}></span> */}
+      
+        <Typed
+        className="text-right"
+            strings={["Mailer Daemon"]}
+            typeSpeed={80}
+            backSpeed={80}
+            loop
+          />
+          </h1>
      <div className="text-xl  p-2  md:text-1.5xl font-extrabold text-white">Student run media body of IIT(ISM) Dhanbad.</div>
    </header>
        
