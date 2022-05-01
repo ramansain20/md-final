@@ -6,7 +6,6 @@ import PortableText from 'react-portable-text'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { useState } from 'react'
 import Head from 'next/head'
-import Carousel from '../../Components/Carousel'
 
 interface IFormInput {
   _id: string
@@ -59,17 +58,17 @@ function PostPage({ post }: Props) {
       </Head>
       <Header />
       <img
-        className="h-screen w-full object-cover"
+        className="object-cover w-full h-screen "
         src={urlFor(post.mainImage).url()!}
         alt=""
       />
       
-      <article className="mx-auto max-w-3xl p-5">
+      <article className="max-w-3xl p-5 mx-auto">
         <h1 className="mt-10 mb-3 text-3xl">{post.title}</h1>
         <h2 className="text-xl font-light text-gray-500">{post.description}</h2>
         <div className="flex items-center space-x-2">
           <img
-            className="h-10 w-10 rounded-full"
+            className="w-10 h-10 rounded-full"
             src={urlFor(post.author.image).url()!}
             alt=""
           />
@@ -101,16 +100,16 @@ function PostPage({ post }: Props) {
                 </a>
               ),
               // image: (props: any) => (
-              //   <img {...props} className="w-full flex-1 items-center" />
+              //   <img {...props} className="items-center flex-1 w-full" />
               // )
             }}
           />
         </div>
       </article>
-      <hr className="my-5 mx-auto max-w-lg border border-yellow-500" />
+      <hr className="max-w-lg mx-auto my-5 border border-yellow-500" />
 
       {submitted ? (
-        <div className="my-10 mx-auto flex max-w-2xl flex-col bg-yellow-500 p-10 text-white">
+        <div className="flex flex-col max-w-2xl p-10 mx-auto my-10 text-white bg-yellow-500">
           <h3 className="text-3xl font-bold">
             Thank You for submitting your comment!
           </h3>
@@ -119,11 +118,11 @@ function PostPage({ post }: Props) {
       ) : (
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="mx-auto mb-10 flex max-w-2xl flex-col p-5"
+          className="flex flex-col max-w-2xl p-5 mx-auto mb-10"
         >
           <h3 className="text-sm text-yellow-500">Enjoyed this article?</h3>
           <h4 className="text-3xl font-bold">Leave a comment below!</h4>
-          <hr className="mt-2 py-3" />
+          <hr className="py-3 mt-2" />
 
           <input
             {...register('_id')}
@@ -132,29 +131,29 @@ function PostPage({ post }: Props) {
             value={post._id}
           />
 
-          <label className="mb-5 block">
+          <label className="block mb-5">
             <span className="text-gray-700">Name</span>
             <input
               {...register('name', { required: true })}
-              className="form-input mt-1 block w-full rounded border py-2 px-3 shadow outline-none ring-yellow-500 focus:ring"
+              className="block w-full px-3 py-2 mt-1 border rounded shadow outline-none form-input ring-yellow-500 focus:ring"
               placeholder="Mailer Daemon"
               type="text"
             />
           </label>
-          <label className="mb-5 block">
+          <label className="block mb-5">
             <span className="text-gray-700">Email</span>
             <input
               {...register('email', { required: true })}
-              className="form-input mt-1 block w-full rounded border py-2 px-3 shadow outline-none ring-yellow-500 focus:ring"
+              className="block w-full px-3 py-2 mt-1 border rounded shadow outline-none form-input ring-yellow-500 focus:ring"
               placeholder="MD@mailer-daemon.com"
               type="email"
             />
           </label>
-          <label className="mb-5 block">
+          <label className="block mb-5">
             <span className="text-gray-700">Comment</span>
             <textarea
               {...register('comment', { required: true })}
-              className="form-textarea mt-1 block w-full rounded border py-2 px-3 shadow outline-none ring-yellow-500 focus:ring"
+              className="block w-full px-3 py-2 mt-1 border rounded shadow outline-none form-textarea ring-yellow-500 focus:ring"
               placeholder="Enter your comment here..."
               rows={8}
             />
@@ -174,12 +173,12 @@ function PostPage({ post }: Props) {
             )}
           </div>
           <input
-            className="focus:shadow-outline cursor-pointer rounded bg-yellow-500 py-2 px-4 font-bold text-white shadow hover:bg-yellow-400 focus:outline-none"
+            className="px-4 py-2 font-bold text-white bg-yellow-500 rounded shadow cursor-pointer focus:shadow-outline hover:bg-yellow-400 focus:outline-none"
             type="submit"
           />
         </form>
       )}
-      <div className="my-10 mx-auto flex max-w-2xl flex-col space-y-2 p-10 shadow shadow-yellow-500">
+      <div className="flex flex-col max-w-2xl p-10 mx-auto my-10 space-y-2 shadow shadow-yellow-500">
         <h3 className="text-4xl">Comments</h3>
         <hr className="pb-2" />
         {post.comments.map((comment) => {
@@ -193,8 +192,6 @@ function PostPage({ post }: Props) {
           )
         })}
       </div>
-      <Carousel/>
-      hh
     </main>
   )
 }
